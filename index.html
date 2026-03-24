@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KUJIRA – BG① 深度計 (deeper&darker)</title>
+  <title>KUJIRA_30th_anniversary</title>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     :root{--gold:#F5A623;--cyan:#00FFD4;--dark:#04070F;--deep:#020409}
@@ -105,8 +105,8 @@
     body.world-reveal::after{animation:underwaterBloom 3.05s cubic-bezier(.16,1,.3,1) both}
 
     .section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:60px 40px}
-    #hero{flex-direction:column;text-align:center}
-    .logo-wrap{margin-bottom:32px;will-change:transform,opacity,filter}
+    #hero{flex-direction:column;text-align:center;padding-top:88px;padding-bottom:110px}
+    .logo-wrap{margin-top:-46px;margin-bottom:20px;will-change:transform,opacity,filter}
     .logo-wrap img{height:76px;filter:drop-shadow(0 0 22px rgba(245,166,35,.7)) drop-shadow(0 0 44px rgba(245,166,35,.3))}
     @keyframes underwaterBloom{0%{opacity:0;transform:scale(.64);filter:blur(74px) brightness(2.15) saturate(2.2)}22%{opacity:1;transform:scale(.96);filter:blur(24px) brightness(2.45) saturate(2.35)}58%{opacity:.92;transform:scale(1.12);filter:blur(38px) brightness(1.48) saturate(1.6)}100%{opacity:0;transform:scale(1.34);filter:blur(86px) brightness(1) saturate(1)}}
     @keyframes worldRevealBloom{0%{opacity:.08;transform:scale(1.2);filter:blur(44px) brightness(3.3) saturate(2.4)}28%{opacity:1;transform:scale(1.05);filter:blur(18px) brightness(2.2) saturate(1.95)}100%{opacity:1;transform:scale(1);filter:blur(0) brightness(1) saturate(1)}}
@@ -115,9 +115,9 @@
     @keyframes heroTitleImpact{0%{opacity:0;transform:translateY(48px) scale(1.34);filter:blur(18px) brightness(1.25) drop-shadow(0 0 16px rgba(255,255,255,.18)) drop-shadow(0 0 60px rgba(245,166,35,.22))}58%{opacity:1;transform:translateY(0) scale(.94);filter:blur(0) brightness(1.1) drop-shadow(0 0 26px rgba(245,166,35,.42)) drop-shadow(0 0 56px rgba(0,255,212,.18))}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0) brightness(1) drop-shadow(0 0 36px rgba(245,166,35,.4))}}
     .hero-title,.hero-sub,.hero-year,.scroll-hint{will-change:transform,opacity,filter}
     .hero-title{font-size:clamp(52px,9vw,108px);font-weight:900;letter-spacing:-3px;line-height:1.08;display:inline-block;padding-bottom:.08em;background:linear-gradient(135deg,#fff 0%,var(--gold) 45%,var(--cyan) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 36px rgba(245,166,35,.4))}
-    .hero-sub{font-size:clamp(11px,1.7vw,15px);letter-spacing:9px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-top:14px}
-    .hero-year{font-size:clamp(11px,1.3vw,13px);letter-spacing:5px;color:var(--gold);margin-top:10px}
-    .scroll-hint{margin-top:60px;display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none}
+    .hero-sub{font-size:clamp(11px,1.7vw,15px);letter-spacing:9px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-top:10px}
+    .hero-year{font-size:clamp(11px,1.3vw,13px);letter-spacing:5px;color:var(--gold);margin-top:8px}
+    .scroll-hint{margin-top:202px;display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none}
     body.hero-pending .logo-wrap{opacity:0;transform:translateY(18px) scale(.92);filter:blur(8px)}
     body.hero-pending .hero-title{opacity:0;transform:translateY(48px) scale(1.34);filter:blur(18px) drop-shadow(0 0 12px rgba(255,255,255,.1))}
     body.hero-pending .hero-sub,body.hero-pending .hero-year,body.hero-pending .scroll-hint{opacity:0;transform:translateY(28px) scale(.96);filter:blur(10px)}
@@ -200,18 +200,32 @@
       .tc-icon        { width: 78px; height: 78px; margin-bottom: 10px; }
 
       /* ─── タイムライン：左縦一列に変更 ─── */
-      .timeline::before { left: 18px; transform: none; }
+      .timeline { --tl-axis: 18px; }
+      .timeline::before {
+        left: var(--tl-axis);
+        width: 2px;
+        transform: translateX(-50%);
+      }
       .tl-item {
         justify-content: flex-start;
         padding: 0 0 32px 50px;
-        transform: translateX(-20px);
+        transform: none !important;
       }
       .tl-item.right {
         justify-content: flex-start;
         padding: 0 0 32px 50px;
-        transform: translateX(-20px);
+        transform: none !important;
       }
-      .tl-dot { left: 14px; transform: none; }
+      .tl-item.visible {
+        transform: none !important;
+      }
+      .tl-dot {
+        left: var(--tl-axis);
+        top: 8px;
+        width: 12px;
+        height: 12px;
+        transform: translateX(-50%);
+      }
       .tl-box { max-width: 100%; width: 100%; }
 
       /* テックグリッド：3列→2列 */
