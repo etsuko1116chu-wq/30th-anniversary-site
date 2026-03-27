@@ -2220,6 +2220,132 @@
   #history-section{overflow:clip;}
   #history-section .timeline{transform-origin:50% 0%;}
 
+
+
+  /* ===== Hero title orange-yellow FIX v44 ===== */
+  .hero-title{
+    background:linear-gradient(90deg,
+      #E78A2F 0%,
+      #F3B24D 42%,
+      #FFD86A 100%
+    ) !important;
+    background-size:100% 100% !important;
+    background-position:center center !important;
+    -webkit-background-clip:text !important;
+    background-clip:text !important;
+    -webkit-text-fill-color:transparent !important;
+    color:transparent !important;
+    animation:none !important;
+    filter:drop-shadow(0 6px 18px rgba(231,138,47,.14)) !important;
+    text-shadow:none !important;
+    -webkit-text-stroke:0 !important;
+  }
+  body.hero-reveal .hero-title{
+    animation:heroTitleImpact 1.5s cubic-bezier(0.215,0.61,0.355,1) .5s both !important;
+  }
+
+
+
+  /* ===== Hero title navy + hero sub orange FIX v45 ===== */
+  .hero-title{
+    background:linear-gradient(90deg,
+      #173B59 0%,
+      #2E5679 52%,
+      #4F7694 100%
+    ) !important;
+    background-size:100% 100% !important;
+    background-position:center center !important;
+    -webkit-background-clip:text !important;
+    background-clip:text !important;
+    -webkit-text-fill-color:transparent !important;
+    color:transparent !important;
+    animation:none !important;
+    filter:drop-shadow(0 6px 18px rgba(23,59,89,.12)) !important;
+    text-shadow:none !important;
+    -webkit-text-stroke:0 !important;
+  }
+  body.hero-reveal .hero-title{
+    animation:heroTitleImpact 1.5s cubic-bezier(0.215,0.61,0.355,1) .5s both !important;
+  }
+  .hero-sub{
+    color:#E78A2F !important;
+    text-shadow:0 4px 14px rgba(231,138,47,.12) !important;
+  }
+
+
+
+  /* ===== Hero title weight softened FIX v46 ===== */
+  #hero .hero-title{
+    font-weight:780 !important;
+    letter-spacing:-.02em !important;
+  }
+
+
+
+  /* ===== Hero title loading cool-navy FIX v47 ===== */
+  #hero .hero-title{
+    background:linear-gradient(90deg,
+      #0B3E72 0%,
+      #2E6F96 48%,
+      #6FAFC6 100%
+    ) !important;
+    background-size:100% 100% !important;
+    background-position:center center !important;
+    -webkit-background-clip:text !important;
+    background-clip:text !important;
+    -webkit-text-fill-color:transparent !important;
+    color:transparent !important;
+    animation:none !important;
+    filter:drop-shadow(0 6px 18px rgba(11,62,114,.12)) drop-shadow(0 0 18px rgba(111,175,198,.08)) !important;
+    text-shadow:none !important;
+    -webkit-text-stroke:0 !important;
+    font-weight:780 !important;
+    letter-spacing:-.02em !important;
+  }
+  body.hero-reveal #hero .hero-title{
+    animation:heroTitleImpact 1.5s cubic-bezier(0.215,0.61,0.355,1) .5s both !important;
+  }
+
+
+
+  /* ===== Hero title blue softened FIX ===== */
+  #hero .hero-title{
+    background:linear-gradient(90deg,
+      #0B3E72 0%,
+      #2A7392 28%,
+      #88BBC4 52%,
+      #CDE06F 78%,
+      #F3D861 100%
+    ) !important;
+    background-size:100% 100% !important;
+    background-position:center center !important;
+    -webkit-background-clip:text !important;
+    background-clip:text !important;
+    -webkit-text-fill-color:transparent !important;
+    color:transparent !important;
+    animation:none !important;
+    filter:drop-shadow(0 6px 18px rgba(11,62,114,.11)) drop-shadow(0 0 16px rgba(136,187,196,.08)) drop-shadow(0 0 10px rgba(243,216,97,.08)) !important;
+    text-shadow:none !important;
+    -webkit-text-stroke:0 !important;
+    font-weight:780 !important;
+    letter-spacing:-.02em !important;
+  }
+  body.hero-reveal #hero .hero-title{
+    animation:heroTitleImpact 1.5s cubic-bezier(0.215,0.61,0.355,1) .5s both !important;
+  }
+
+
+  /* History content restore FIX v49 */
+  #history-section .timeline{min-height:520px;}
+  #history-section .tl-item{opacity:1 !important;filter:none !important;transform:translateX(0) !important;}
+  #history-section .tl-item.right{transform:translateX(0) !important;}
+  #history-section .tl-box{opacity:1 !important;visibility:visible !important;}
+
+
+  /* History no-disappear FIX v50 */
+  #history-section .timeline{min-height:auto !important; transform:none !important;}
+  #history-section .tl-box{transform:none;}
+
 </style>
 </head>
 <body class="loading-phase hero-pending">
@@ -3315,23 +3441,31 @@ animate();
       scrollTrigger:{trigger:'#history-section',start:'top 80%'}
     });
 
-    gsap.set('#history-section .tl-item',{opacity:0,filter:'blur(10px)'});
-    const historyTl=gsap.timeline({
-      defaults:{ease:'none'},
-      scrollTrigger:{
-        trigger:'#history-section .timeline',
-        start:'top top+=18%',
-        end:'+=165%',
-        pin:true,
-        scrub:1.02,
-        anticipatePin:1,
-        invalidateOnRefresh:true
-      }
+    gsap.set('#history-section .tl-item',{opacity:1,filter:'blur(0px)',x:0});
+    gsap.fromTo('#history-section .tl-box',{
+      y:24,
+      scale:0.985,
+      filter:'blur(8px)'
+    },{
+      y:0,
+      scale:1,
+      filter:'blur(0px)',
+      stagger:0.14,
+      duration:0.78,
+      ease:'power3.out',
+      scrollTrigger:{trigger:'#history-section .timeline',start:'top 76%',once:true}
     });
-    historyTl
-      .fromTo('#history-section .timeline',{yPercent:6},{yPercent:-10,duration:1},0)
-      .to('#history-section .tl-item',{opacity:1,x:0,filter:'blur(0px)',stagger:0.15,duration:0.72},0.06)
-      .fromTo('#history-section .tl-box',{scale:0.97},{scale:1,stagger:0.15,duration:0.72},0.06);
+    gsap.fromTo('#history-section .tl-dot',{
+      scale:0.6,
+      opacity:0.45
+    },{
+      scale:1,
+      opacity:1,
+      stagger:0.14,
+      duration:0.55,
+      ease:'back.out(1.7)',
+      scrollTrigger:{trigger:'#history-section .timeline',start:'top 76%',once:true}
+    });
 
     gsap.fromTo('#tech-section .sec-label,#tech-section .sec-title',{
       opacity:0,
@@ -3429,18 +3563,19 @@ animate();
       scrollTrigger:{trigger:'#concept-section',start:'top 82%'}
     });
 
-    gsap.fromTo('#history-section .tl-item',{
-      opacity:0,
-      y:30,
-      filter:'blur(8px)'
+    gsap.set('#history-section .tl-item',{opacity:1,filter:'blur(0px)',y:0});
+    gsap.fromTo('#history-section .tl-box',{
+      y:18,
+      scale:0.99,
+      filter:'blur(6px)'
     },{
-      opacity:1,
       y:0,
+      scale:1,
       filter:'blur(0px)',
-      stagger:0.12,
-      duration:0.75,
+      stagger:0.1,
+      duration:0.7,
       ease:'power3.out',
-      scrollTrigger:{trigger:'#history-section',start:'top 82%'}
+      scrollTrigger:{trigger:'#history-section .timeline',start:'top 84%',once:true}
     });
 
     gsap.fromTo('#tech-section .sec-label,#tech-section .sec-title',{

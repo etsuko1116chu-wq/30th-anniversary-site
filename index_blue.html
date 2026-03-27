@@ -2220,6 +2220,66 @@
   #history-section{overflow:clip;}
   #history-section .timeline{transform-origin:50% 0%;}
 
+
+
+  /* ===== Hero title orange-yellow FIX v44 ===== */
+  .hero-title{
+    background:linear-gradient(90deg,
+      #E78A2F 0%,
+      #F3B24D 42%,
+      #FFD86A 100%
+    ) !important;
+    background-size:100% 100% !important;
+    background-position:center center !important;
+    -webkit-background-clip:text !important;
+    background-clip:text !important;
+    -webkit-text-fill-color:transparent !important;
+    color:transparent !important;
+    animation:none !important;
+    filter:drop-shadow(0 6px 18px rgba(231,138,47,.14)) !important;
+    text-shadow:none !important;
+    -webkit-text-stroke:0 !important;
+  }
+  body.hero-reveal .hero-title{
+    animation:heroTitleImpact 1.5s cubic-bezier(0.215,0.61,0.355,1) .5s both !important;
+  }
+
+
+
+  /* ===== Hero title navy + hero sub orange FIX v45 ===== */
+  .hero-title{
+    background:linear-gradient(90deg,
+      #173B59 0%,
+      #2E5679 52%,
+      #4F7694 100%
+    ) !important;
+    background-size:100% 100% !important;
+    background-position:center center !important;
+    -webkit-background-clip:text !important;
+    background-clip:text !important;
+    -webkit-text-fill-color:transparent !important;
+    color:transparent !important;
+    animation:none !important;
+    filter:drop-shadow(0 6px 18px rgba(23,59,89,.12)) !important;
+    text-shadow:none !important;
+    -webkit-text-stroke:0 !important;
+  }
+  body.hero-reveal .hero-title{
+    animation:heroTitleImpact 1.5s cubic-bezier(0.215,0.61,0.355,1) .5s both !important;
+  }
+  .hero-sub{
+    color:#E78A2F !important;
+    text-shadow:0 4px 14px rgba(231,138,47,.12) !important;
+  }
+
+
+
+  /* ===== Hero title weight softened FIX v46 ===== */
+  #hero .hero-title{
+    font-weight:780 !important;
+    letter-spacing:-.02em !important;
+  }
+
 </style>
 </head>
 <body class="loading-phase hero-pending">
